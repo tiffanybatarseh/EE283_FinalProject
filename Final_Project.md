@@ -46,3 +46,4 @@ There is also bam2bam. I could not determine if it was available on the HPC.
 ```
 bam2bam --barcodes barcodes_8plex.fasta -o Ecoli_8plex_demo.barcoded.subreads.bam
 ```
+Could not determine how to install onto HPC either. 
