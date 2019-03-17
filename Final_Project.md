@@ -132,3 +132,16 @@ canu \
 ```
 
 Recieved same error message as before in which canu couldn't configure the SGE parallel environment even though I did not run it as a task array.
+
+Added these options to the canu command
+
+```
+gridEngineThreadsOption="-pe openmp-class THREADS" gridEngineMemoryOption="-l mem_requested=8
+```
+
+New error:
+
+```
+/var/spool/sge/compute-13-7/job_scripts/6080918: line 10: unexpected EOF while looking for matching `"'
+/var/spool/sge/compute-13-7/job_scripts/6080918: line 14: syntax error: unexpected end of file
+```
