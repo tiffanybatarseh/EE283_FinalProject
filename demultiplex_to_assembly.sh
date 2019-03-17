@@ -29,7 +29,7 @@ module load canu/1.5
 
 mkdir ${prefix}
 
-canu \
+canu gridEngineThreadsOption="-pe openmp-class THREADS" gridEngineMemoryOption="-l mem_requested=8 \
  -p ${prefix}_ecoli_8plex -d ${prefix} \
  genomeSize=4.8m \
  -pacbio-raw ${prefix}x.fastq
