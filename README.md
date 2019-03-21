@@ -198,10 +198,9 @@ From this script I can update in case I need to reinstall BUSCO to the HPC
 #!/bin/bash
 #$ -N BUSCO_ecoli
 #$ -q abio128,abio,bsg,bsg2
-#$ -pe openmp 32-64
-#$ -R Y
-#$ -t 1-8
+#$ -pe openmp 32-128
 #$ -ckpt restart
+#$ -R Y
 #$ -m beas
 
 module load augustus/3.2.1
@@ -212,9 +211,9 @@ INPUTTYPE="geno"
 MYLIBDIR="/data/users/tbatarse/bin/busco/lineages/"
 MYLIB="proteobacteria_odb9"
 OPTIONS="-l ${MYLIBDIR}${MYLIB}"
-prefix=`head -n $SGE_TASK_ID prefixes.txt | tail -n 1 | cut -f2`
+QRY="Ecoli_8plex_demo.7--7.contigs.fasta"
 ###Please change this based on your qry file. I.e. .fasta or .fa or .gfa
-MYEXT=".fa"
+MYEXT=".fasta"
 
-BUSCO.py -c 128 -i ${prefix}.fasta -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
+BUSCO.py -c 128 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
 ```
