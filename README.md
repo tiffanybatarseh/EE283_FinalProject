@@ -213,3 +213,27 @@ MYEXT=".fasta"
 
 BUSCO.py -c 128 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
 ```
+
+Example output for genome 8:
+
+```
+# BUSCO version is: 2.0
+# The lineage dataset is: proteobacteria_odb9 (Creation date: 2016-11-01, number of species: 1520, number of BUSCOs: 221)
+# To reproduce this run: python /pub/jje/ee282/bin/busco/BUSCO.py -i Ecoli_8plex_demo.7--7.contigs.fasta -o Ecoli_8plex_demo.7--7.contigs_proteobacteria_odb9 -l /data/users/tbatarse/bin/busco/lineages/proteobacteria_odb9/ -m genome -c 128 -sp E_coli_K12
+#
+# Summarized benchmarking in BUSCO notation for file Ecoli_8plex_demo.7--7.contigs.fasta
+# BUSCO was run in mode: genome
+
+        C:35.3%[S:35.3%,D:0.0%],F:21.7%,M:43.0%,n:221
+
+        78      Complete BUSCOs (C)
+        78      Complete and single-copy BUSCOs (S)
+        0       Complete and duplicated BUSCOs (D)
+        48      Fragmented BUSCOs (F)
+        95      Missing BUSCOs (M)
+        221     Total BUSCO groups searched
+```
+
+Which is not a good result since only 35.3% complete BUSCO genes were found. I can run this for all 8 succesfully however. 
+
+All of this code will be helpful when I receive my PacBio sequences for my project from the species of bacteria Xylella fastidiosa
