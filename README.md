@@ -158,6 +158,31 @@ Added
 
 Re-ran canu with the 8 genomes as a task array.
 
+```
+#!/bin/bash
+#$ -N pacbio_final_gridfalse
+#$ -q abio128,bio,abio
+#$ -pe openmp 64
+#$ -ckpt restart
+#$ -R y
+#$ -t 1-8
+#$ -m beas
+
+prefix=`head -n $SGE_TASK_ID prefixes.txt | tail -n 1 | cut -f2`
+
+#bamtools convert -format fastq -in ${prefix}.bam -out ${prefix}.fastq
+
+module load canu/1.5
+
+mkdir ${prefix}
+
+canu \
+ -p ${prefix} -d ${prefix} \
+ genomeSize=4.8m \
+ -pacbio-raw ${prefix}.fastq \
+ useGrid=false
+```
+
 ## Busco:
 
 Download the correct database
