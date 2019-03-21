@@ -1,7 +1,3 @@
-Markdown file with the workflow I went through to go from downloading the files, to demultiplexing, then assemlbly is in the **Final_Project.md** file; there I list out the steps I took and any errors I had come across and how I tried to solve them. 
-
-The **.sh** files contains the relevant bash scripts to submit as a job to the HPC.
-
 # Final Project: PacBio Sequencing of 8 E. coli Genomes from Single SMRT Cell
 
 **The basic steps to get the assemblies are:**
