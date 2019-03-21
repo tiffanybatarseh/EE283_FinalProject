@@ -185,7 +185,7 @@ canu \
 
 ## Busco:
 
-Download the correct database
+Download the correct database: Proteobacteria. 
 
 ```
 wget http://busco.ezlab.org/v2/datasets/proteobacteria_odb9.tar.gz
