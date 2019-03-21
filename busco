@@ -1,0 +1,23 @@
+#BUSCO
+
+#!/bin/bash
+#$ -N BUSCO_ecoli
+#$ -q abio128,abio,bsg,bsg2
+#$ -pe openmp 32-128
+#$ -ckpt restart
+#$ -R Y
+#$ -m beas
+
+module load augustus/3.2.1
+module load blast/2.2.31 hmmer/3.1b2 boost/1.54.0
+source /pub/jje/ee282/bin/.buscorc
+
+INPUTTYPE="geno"
+MYLIBDIR="/data/users/tbatarse/bin/busco/lineages/"
+MYLIB="proteobacteria_odb9"
+OPTIONS="-l ${MYLIBDIR}${MYLIB}"
+QRY="Ecoli_8plex_demo.0--0.contigs.fasta"
+###Please change this based on your qry file. I.e. .fasta or .fa or .gfa
+MYEXT=".fasta"
+
+BUSCO.py -c 128 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
